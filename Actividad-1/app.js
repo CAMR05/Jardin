@@ -53,7 +53,7 @@ var matcapMap = textureLoader.load(
        // 3. Poner objeto en la escena.
        scene.add(mesh);
        mesh.position.x = -8;
-       mesh.position.y = -2;
+       mesh.position.y = -3;
        mesh.position.z = -10;
        // 4. Activar animación.
        animate();
@@ -86,8 +86,8 @@ function animate() {
 window.addEventListener("mousedown", function () {
         gsap.to(mesh.position,
             {
-                x:1,
-                y:3,
+                x:0.5,
+                y:2.5,
                 duration:3, //segundos
                 ease:"sine.inOut",
                 onComplete:function() {
@@ -95,9 +95,9 @@ window.addEventListener("mousedown", function () {
                         mesh.position,
                         {
                             x:8,
-                            y:-2,
+                            y:-3,
                             duration:3,
-                            ease:"sine.in",
+                            ease:"sine.inOut",
                         }
                     )
                 }
