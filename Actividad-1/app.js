@@ -97,7 +97,7 @@ window.addEventListener("mousedown", function () {
                             x:7,
                             y:-3,
                             duration:3,
-                            ease:"circ.i",
+                            ease:"circ.in",
                         }
                     )
                 }
