@@ -24,6 +24,17 @@ MeshNormalMaterial({
    flatShading: true,
 });
 
+
+//fondo de la escena
+scene.background = new THREE.Color("#000658");
+
+const planeGeometry = new THREE.PlaneGeometry(50,50);
+const planeMaterial = new THREE.MeshBasicMaterial({color:"#ff8000"});
+const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+plane.rotation.x = -Math.PI/2;
+plane.position.y = -6;
+scene.add(plane);
+
 ///////// CONFIGURACIÓN DE MATCAPS
 ///////// INICIO
 // Ayuda.
@@ -41,7 +52,7 @@ var matcapMap = textureLoader.load(
        mesh = new THREE.Mesh( geometry, matcapMaterial );
        // 3. Poner objeto en la escena.
        scene.add(mesh);
-       mesh.position.z = -4;
+       mesh.position.z = -10;
        // 4. Activar animación.
        animate();
    },
@@ -70,3 +81,30 @@ function animate() {
    mesh.rotation.y += 0.01;
    renderer.render(scene, camera);
 }
+
+animate();
+
+window.addEventListener("mousedown", function () {
+        gsap.to(mesh.position,
+            {
+                x:innerWidth/2,
+                y:-900,
+                z: -100,
+                
+                duration:3, //segundos
+                ease:"power1.out",
+                onComplete:function() {
+                    gsap.to(
+                        mesh.position,
+                        {
+                            x:6700,
+                            y:80,
+                            z:-100,
+                            duration:3,
+                            ease:"power1.in",
+                        }
+                    )
+                }
+            }
+        );
+});
