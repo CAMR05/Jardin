@@ -83,30 +83,26 @@ function animate() {
    mesh.rotation.y += 0.01;
    renderer.render(scene, camera);
 }
-
-animate();
-
 window.addEventListener("mousedown", function () {
         gsap.to(mesh.position,
             {
-                x:-innerWidth/2,
-                y:-900,
-                z: -100,
-                
+                x:1,
+                y:3,
                 duration:3, //segundos
-                ease:"power1.out",
+                ease:"circ.inOut",
                 onComplete:function() {
                     gsap.to(
                         mesh.position,
                         {
-                            x:6700,
-                            y:80,
-                            z:-100,
+                            x:7,
+                            y:-3,
                             duration:3,
-                            ease:"power1.in",
+                            ease:"circ.i",
                         }
                     )
                 }
             }
         );
 });
+animate();
+
