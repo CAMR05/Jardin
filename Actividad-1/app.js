@@ -89,7 +89,7 @@ window.addEventListener("mousedown", function () {
                 x:1,
                 y:3,
                 duration:3, //segundos
-                ease:"circ.inOut",
+                ease:"sine.out",
                 onComplete:function() {
                     gsap.to(
                         mesh.position,
@@ -97,7 +97,7 @@ window.addEventListener("mousedown", function () {
                             x:7,
                             y:-3,
                             duration:3,
-                            ease:"circ.in",
+                            ease:"sine.in",
                         }
                     )
                 }
