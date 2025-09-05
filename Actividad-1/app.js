@@ -52,8 +52,8 @@ var matcapMap = textureLoader.load(
        mesh = new THREE.Mesh( geometry, matcapMaterial );
        // 3. Poner objeto en la escena.
        scene.add(mesh);
-       mesh.position.x = -7;
-       mesh.position.y = -3;
+       mesh.position.x = -8;
+       mesh.position.y = -2;
        mesh.position.z = -10;
        // 4. Activar animación.
        animate();
@@ -89,13 +89,13 @@ window.addEventListener("mousedown", function () {
                 x:1,
                 y:3,
                 duration:3, //segundos
-                ease:"sine.out",
+                ease:"sine.inOut",
                 onComplete:function() {
                     gsap.to(
                         mesh.position,
                         {
-                            x:7,
-                            y:-3,
+                            x:8,
+                            y:-2,
                             duration:3,
                             ease:"sine.in",
                         }
