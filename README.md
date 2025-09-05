@@ -1,2 +1,2 @@
-# Jard-n
+# Jardin
 Jardín de ejercicios diarios
