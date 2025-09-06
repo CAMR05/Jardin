@@ -56,7 +56,7 @@ textureLoader.load(
 
        scene.add(mesh2);
        mesh2.position.x = 1;
-       mesh2.position.y = 0;
+       mesh2.position.y = 1;
        mesh2.position.z = -15;
        // 4. Activar animación.
        animate();
@@ -86,8 +86,7 @@ renderer.render(scene, camera);
 // Tip para animar nuestro mesh:
 function animate() {
    requestAnimationFrame(animate);
-    mesh.rotation.y += 0.01;
-    mesh2.rotation.y += 0.01;
+
    renderer.render(scene, camera);
 }
 
