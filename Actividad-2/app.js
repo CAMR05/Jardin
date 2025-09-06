@@ -42,7 +42,7 @@ var matcapMap = textureLoader.load(
        mesh = new THREE.Mesh( geometry, matcapMaterial );
        // 3. Poner objeto en la escena.
        scene.add(mesh);
-       mesh.position.x = 5;
+       mesh.position.x = 1;
        mesh.position.y = -3;
        mesh.position.z = -15;
        // 4. Activar animación.
