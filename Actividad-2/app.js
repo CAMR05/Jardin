@@ -18,6 +18,8 @@ const camera = new THREE.PerspectiveCamera(45, canvas.width/canvas.height,0.1, 1
 //SphereGeometry(radius, radialSegments, heightSegments);
 const geometry = new THREE.CylinderGeometry(1,1,5);
 const geometry2 = new THREE.ConeGeometry(3,4,20,30);
+const geometry3 = new THREE.ConeGeometry(2,3,20,30);
+const geometry4 = new THREE.ConeGeometry(1,2,20,30);
 ////Material
 const material = new THREE.
 MeshNormalMaterial({
@@ -35,6 +37,8 @@ var matcapMaterial;
 var matcapMaterial2;
 var mesh;
 var mesh2;
+var mesh3;
+var mesh4; 
 textureLoader.load(
    // Textura URL
    './texturas/matcap3.png',
@@ -48,16 +52,24 @@ textureLoader.load(
        // Mesh.
        mesh = new THREE.Mesh( geometry, matcapMaterial );
        mesh2 = new THREE.Mesh( geometry2, matcapMaterial2 );
+       mesh3 = new THREE.Mesh( geometry3, matcapMaterial2 );
+       mesh4 = new THREE.Mesh( geometry4, matcapMaterial2 );
        // 3. Poner objeto en la escena.
-       scene.add(mesh);
+       scene.add(mesh,mesh2,mesh3,mesh4);
        mesh.position.x = 1;
        mesh.position.y = -3;
        mesh.position.z = -15;
-
-       scene.add(mesh2);
        mesh2.position.x = 1;
        mesh2.position.y = 1;
        mesh2.position.z = -15;
+       mesh3.position.x = 1;
+       mesh3.position.y = 3;
+       mesh3.position.z = -15;
+       mesh4.position.x = 1;
+       mesh4.position.y = 5;
+       mesh4.position.z = -15;
+
+       
        // 4. Activar animación.
        animate();
    },
