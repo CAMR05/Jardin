@@ -27,5 +27,24 @@ window.addEventListener("mousedown", function () {
                  duration:3, //segundos
                 ease:"power1.out",
             });
+        gsap.to(
+            ".ceja1",
+            {
+                rotation: -10, // grados (negativo para rotar hacia arriba)
+                y:innerHeight/2 -60,
+                x:-30,
+
+                    duration:3, //segundos
+                ease:"power1.out",
+            });
+            gsap.to(
+            ".ceja2",
+            {
+                y:innerHeight/2 -40,
+                x:-220,
+
+                    duration:3, //segundos
+                ease:"power1.out",
+            });
     }
         );
