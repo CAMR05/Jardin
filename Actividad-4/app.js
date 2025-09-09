@@ -11,26 +11,16 @@ ctx.beginPath();
 ctx.strokeStyle ="#4b4b4bff";
 ctx.lineWidth = 4;
 
-ctx.moveTo(100, 60);
-ctx.lineTo(100, 700);
+for (let i = 0; i < 11; i++) {
+    let y = 100 + i * 40;
+    let x = 50 + i * 20;
+ctx.moveTo(100 + x, 60);
+ctx.lineTo(100 + x, 60 + y);
+
+}
 
 
 
-
-//ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle);
 
 ctx.fill();
 ctx.stroke();
-
-window.addEventListener("mousedown", function () {
-        gsap.to(
-            ".edificios",
-            {
-                y:innerHeight/2,
-                x:innerWidth/2,
-                
-                duration:3, //segundos
-                ease:"power1.out",
-            });
-    }
-        );
