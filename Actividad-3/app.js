@@ -21,19 +21,10 @@ window.addEventListener("mousedown", function () {
         gsap.to(
             ".lentes",
             {
-                y:innerHeight/2,
-                x:innerWidth/2,
+                y:innerHeight/2 -20,
+                x:-80,
 
                  duration:3, //segundos
-                ease:"power1.out",
-            });
-        gsap.to(
-            ".ojos",
-            {
-                y:innerHeight/2,
-                x:innerWidth/2,
-
-                    duration:3, //segundos
                 ease:"power1.out",
             });
     }
