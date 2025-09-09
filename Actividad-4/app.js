@@ -8,23 +8,24 @@ const ctx = canvas.getContext('2d');
 
 ctx.beginPath();
 
-ctx.strokeStyle ="#4b4b4bff";
+ctx.strokeStyle ="#99e5e7ff";
 ctx.lineWidth = 4;
 
 for (let i = 0; i < 15; i++) {
-    let y = 100 + i * 20;
-    let x = 50 + i * 20;
-ctx.moveTo(500 + x, 60);
-ctx.lineTo(500 + x, 60 + y);
-}
+    for (let i = 0; i < 15; i++) {
+        let y = 100 + i * 20;
+        let x = 50 + i * 20;
+    ctx.moveTo(500 + x, 60);
+    ctx.lineTo(500 + x, 60 + y);
+    }
 
-for (let i = 0; i < 15; i++) {
-    let y = 100 + i * 20;
-    let x = 50 + i * 20;
-ctx.moveTo(canvas.width/2 + x, 540 - y);
-ctx.lineTo(canvas.width/2 + x, 60);
+    for (let i = 0; i < 15; i++) {
+        let y = 100 + i * 20;
+        let x = 50 + i * 20;
+    ctx.moveTo(canvas.width/2 + x, 540 - y);
+    ctx.lineTo(canvas.width/2 + x, 60);
+    }
 }
-
 
 ctx.fill();
 ctx.stroke();
