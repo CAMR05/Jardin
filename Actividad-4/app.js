@@ -1,49 +1,32 @@
-console.log("Actividad Jardín 3. Autorretrato");
+console.log("Actividad Jardín 4. Composición con líneas");
 console.log(gsap);
-
+console.log(lienzo);
 const canvas = document.getElementById("lienzo");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+const ctx = canvas.getContext('2d');
 
-//Creamos nuestros elementos básicos:
-//Escena
+ctx.beginPath();
+
+ctx.strokeStyle ="#ffffffff";
+ctx.lineWidth = 4;
+
+
+
+
+//ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle);
+
+ctx.fill();
+ctx.stroke();
 
 window.addEventListener("mousedown", function () {
         gsap.to(
-            ".cabeza",
+            ".edificios",
             {
                 y:innerHeight/2,
                 x:innerWidth/2,
                 
                 duration:3, //segundos
-                ease:"power1.out",
-            });
-        gsap.to(
-            ".lentes",
-            {
-                y:innerHeight/2 -20,
-                x:-80,
-
-                 duration:3, //segundos
-                ease:"power1.out",
-            });
-        gsap.to(
-            ".ceja1",
-            {
-                rotation: -10, // grados (negativo para rotar hacia arriba)
-                y:innerHeight/2 -60,
-                x:-30,
-
-                    duration:3, //segundos
-                ease:"power1.out",
-            });
-            gsap.to(
-            ".ceja2",
-            {
-                y:innerHeight/2 -40,
-                x:-220,
-
-                    duration:3, //segundos
                 ease:"power1.out",
             });
     }
