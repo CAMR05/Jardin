@@ -8,8 +8,11 @@ const ctx = canvas.getContext('2d');
 
 ctx.beginPath();
 
-ctx.strokeStyle ="#ffffffff";
+ctx.strokeStyle ="#4b4b4bff";
 ctx.lineWidth = 4;
+
+ctx.moveTo(100, 60);
+ctx.lineTo(100, 700);
 
 
 
