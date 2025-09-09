@@ -11,15 +11,19 @@ ctx.beginPath();
 ctx.strokeStyle ="#4b4b4bff";
 ctx.lineWidth = 4;
 
-for (let i = 0; i < 11; i++) {
-    let y = 100 + i * 40;
+for (let i = 0; i < 15; i++) {
+    let y = 100 + i * 20;
     let x = 50 + i * 20;
-ctx.moveTo(100 + x, 60);
-ctx.lineTo(100 + x, 60 + y);
-
+ctx.moveTo(0 + x, 60);
+ctx.lineTo(0 + x, 60 + y);
 }
 
-
+for (let i = 0; i < 15; i++) {
+    let y = 100 + i * 20;
+    let x = 50 + i * 20;
+ctx.moveTo(canvas.width/2 + x, 540 - y);
+ctx.lineTo(canvas.width/2 + x, 60);
+}
 
 
 ctx.fill();
