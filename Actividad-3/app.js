@@ -10,13 +10,31 @@ canvas.height = window.innerHeight;
 
 window.addEventListener("mousedown", function () {
         gsap.to(
-            ".rostro",
+            ".cabeza",
             {
                 y:innerHeight/2,
                 x:innerWidth/2,
                 
                 duration:3, //segundos
                 ease:"power1.out",
-            }
+            });
+        gsap.to(
+            ".lentes",
+            {
+                y:innerHeight/2,
+                x:innerWidth/2,
+
+                 duration:3, //segundos
+                ease:"power1.out",
+            });
+        gsap.to(
+            ".ojos",
+            {
+                y:innerHeight/2,
+                x:innerWidth/2,
+
+                    duration:3, //segundos
+                ease:"power1.out",
+            });
+    }
         );
-});
