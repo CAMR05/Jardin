@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background:linear-gradient(to top,navy, darkred);
+}
+
+.lienzo {
+        position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.rostro{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 200px;
+    height: 250px;
+    border-radius: 50% / 60%;
+    transform: translate(-50%, -50%);
+    background-color: crimson;
+}
