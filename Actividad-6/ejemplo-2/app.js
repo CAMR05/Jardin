@@ -11,9 +11,27 @@ ctx.beginPath();
 ctx.strokeStyle ="#ffffff";
 ctx.lineWidth = 7;
 
-for (let i = 0; i < 60; i++) {
-    const radius = 40 + i * 40
-ctx.ellipse(200 + i * 30 ,canvas.height/2, 100+ i * 10 , 200 + i * 2, 0,Math.PI * 2, 0 );
+
+    for (let i = 0; i < 85; i++) {
+        const radius = 40 + i * 40
+    ctx.ellipse(200 + i * 30 ,canvas.height/2, 100+ i * 10 , 200 + i * 2, 0,Math.PI * 2, 0 );
+
+
+ctx.fill();
+ctx.stroke();}
+
+ for (let i = 0; i < 85; i++) {
+        const radius = 40 + i * 40
+    ctx.ellipse(200 + i * 30 ,550, 100+ i * 10 , 200 + i * 2, 0,Math.PI * 2, 0 );
+
+
+ctx.fill();
+ctx.stroke();}
+
+ for (let i = 0; i < 85; i++) {
+        const radius = 40 + i * 40
+    ctx.ellipse(200 + i * 30 ,1350, 100+ i * 10 , 200 + i * 2, 0,Math.PI * 2, 0 );
+
 
 ctx.fill();
 ctx.stroke();}
