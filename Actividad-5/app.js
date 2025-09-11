@@ -10,8 +10,7 @@ const scene = new THREE.Scene();
 //Cámara
 //const camera = new THREE.Camera(fov, aspectRatio, near, far);
 const camera = new THREE.PerspectiveCamera(45, canvas.width/canvas.height,0.1, 1000);
-camera.position.z = 40;
-
+camera.position.set(30,0,50);
 //Mesh
 ////Geometría
 //SphereGeometry(radius, radialSegments, heightSegments);
@@ -51,7 +50,7 @@ for (let i = 0; i < 15; i++) {
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 mesh.position.z = -10;
-mesh.rotation.x = 90;
+mesh.rotation.x = -90;
 
 //Renderer
 const renderer = new THREE.WebGLRenderer({canvas: canvas});
@@ -62,11 +61,11 @@ renderer.setSize(canvas.width, canvas.height);
 
 
 
-const topLight = new THREE.PointLight("#ffffff", 100, 100);
+const topLight = new THREE.PointLight("#ffffff", 200, 200);
 topLight.position.y = 5;
 scene.add(topLight);
 
-const frontLight = new THREE.PointLight("#ffffff", 100, 100);
+const frontLight = new THREE.PointLight("#ffffff", 200, 200);
 frontLight.position.set(3,1,3);
 scene.add(frontLight);
 
