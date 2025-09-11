@@ -24,25 +24,16 @@ MeshPhongMaterial({
    shininess: 100,
 });
 for (let i = 0; i < 15; i++) {
-    let x = 500 + 70 + i * 30; 
+    let x = 500 + 70 + i * 50; 
     for (let j = 0; j < 10; j++) { 
-        let y = 60 + j * 10;
+        let y = 60 + j * 70;
         const box = new THREE.Mesh(geometry, material);
         box.position.set((x - canvas.width/2) * 0.05, (y - canvas.height/2) * -0.05, -20);
         scene.add(box);
     }
 }
 
-// Verticales centradas (como el segundo ciclo de actividad 4)
-for (let i = 0; i < 15; i++) {
-    let x = canvas.width/2 + 50 + i * 20;
-    for (let j = 0; j < 10; j++) {
-        let y = 540 - j * 10;
-        const box = new THREE.Mesh(geometry, material);
-        box.position.set((x - canvas.width/2) * 0.05, (y - canvas.height/2) * -0.05, -20);
-        scene.add(box);
-    }
-}
+
 
 // Horizontales (como las líneas horizontales de actividad 4)
 for (let i = 0; i < 15; i++) {
