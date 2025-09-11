@@ -10,7 +10,7 @@ const scene = new THREE.Scene();
 //Cámara
 //const camera = new THREE.Camera(fov, aspectRatio, near, far);
 const camera = new THREE.PerspectiveCamera(45, canvas.width/canvas.height,0.1, 1000);
-camera.position.set(30,0,50);
+camera.position.set(0,0,100);
 //Mesh
 ////Geometría
 //SphereGeometry(radius, radialSegments, heightSegments);
@@ -24,32 +24,40 @@ MeshPhongMaterial({
    shininess: 100,
 });
 for (let i = 0; i < 15; i++) {
-    let y = 100 + i * 20;
-    let x = 50 + i * 20;
-    const box = new THREE.Mesh(geometry, material);
-    box.position.set(5 + x * 0.05, -3, -10 + y * 0.05);
-    scene.add(box);
+    let x = 500 + 70 + i * 30; 
+    for (let j = 0; j < 10; j++) { 
+        let y = 60 + j * 10;
+        const box = new THREE.Mesh(geometry, material);
+        box.position.set((x - canvas.width/2) * 0.05, (y - canvas.height/2) * -0.05, -20);
+        scene.add(box);
+    }
 }
 
+// Verticales centradas (como el segundo ciclo de actividad 4)
 for (let i = 0; i < 15; i++) {
-    let y = 100 + i * 20;
-    let x = 50 + i * 20;
-    const box = new THREE.Mesh(geometry, material);
-    box.position.set(canvas.width/200 + x * 0.05, 1, -10 + y * 0.05);
-    scene.add(box);
+    let x = canvas.width/2 + 50 + i * 20;
+    for (let j = 0; j < 10; j++) {
+        let y = 540 - j * 10;
+        const box = new THREE.Mesh(geometry, material);
+        box.position.set((x - canvas.width/2) * 0.05, (y - canvas.height/2) * -0.05, -20);
+        scene.add(box);
+    }
 }
 
+// Horizontales (como las líneas horizontales de actividad 4)
 for (let i = 0; i < 15; i++) {
     let y = 100 + i * 20;
-    let x = 50 + i * 20;
-    const box = new THREE.Mesh(geometry, material);
-    box.position.set(5, -3 + y * 0.05, -10 + x * 0.05);
-    scene.add(box);
+    for (let j = 0; j < 20; j++) {
+        let x = 500 + j * 40;
+        const box = new THREE.Mesh(geometry, material);
+        box.position.set((x - canvas.width/2) * 0.05, (y - canvas.height/2) * -0.05, -20);
+        scene.add(box);
+    }
 }
 
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
-mesh.position.z = -10;
+mesh.position.z = -40;
 mesh.rotation.x = -90;
 
 //Renderer
@@ -63,6 +71,7 @@ renderer.setSize(canvas.width, canvas.height);
 
 const topLight = new THREE.PointLight("#ffffff", 200, 200);
 topLight.position.y = 5;
+topLight.position.z = 3;
 scene.add(topLight);
 
 const frontLight = new THREE.PointLight("#ffffff", 200, 200);
