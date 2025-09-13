@@ -34,22 +34,20 @@ const renderer = new THREE.WebGLRenderer({canvas: canvas});
 renderer.setSize(canvas.width, canvas.height);
 
 window.addEventListener("resize", function () {
-    // Cambia el color del material a uno aleatorio
     mesh.material.color.setHex(Math.random() * 0xffffff);
 
-    // Opcional: actualiza el tamaño del renderer y la cámara
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     renderer.setSize(canvas.width, canvas.height);
     camera.aspect = canvas.width / canvas.height;
     camera.updateProjectionMatrix();
 
-    const topLight = new THREE.PointLight("#ffffff", 200, 200);
+    const topLight = new THREE.PointLight("#0004fc", 200, 200);
 topLight.position.y = 5;
 topLight.position.z = 3;
 scene.add(topLight);
 
-const frontLight = new THREE.PointLight("#ffffff", 200, 200);
+const frontLight = new THREE.PointLight("#725400", 200, 200);
 frontLight.position.set(3,1,3);
 scene.add(frontLight);
 
