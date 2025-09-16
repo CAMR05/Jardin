@@ -9,18 +9,19 @@ window.addEventListener("mousedown", function () {
         gsap.to(
             ".boomerang",
             {
-                y:-canvas.height,
-                x:canvas.width - 200,
+                y:-canvas.height+500,
+                x:canvas.width,
                 
-                duration:3, //segundos
+                
+                duration:5, //segundos
                 ease:"power1.out",
                 onComplete:function() {
                     gsap.to(
                         ".boomerang",
                         {
-                            x:0,
-                            y:canvas.height,
-                            duration:3,
+                            x:300,
+                            y:canvas.height/7,
+                            duration:5,
                             ease:"power1.in",
                         }
                     )
