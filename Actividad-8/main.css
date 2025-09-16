@@ -20,13 +20,15 @@ body{
 
     .boomerang{
         position: absolute;
-        top: 80%;
-        left: 50%;
-        width: 150px;
-        height: 20px;
-        background: brown;
-        border-radius: 10px;
-        transform: translate(-50%, -50%) rotate(45deg);
+        top: 90%;
+        left: 10%;
+        width: 0px;
+        height: 0px;
+        border-left: 150px solid transparent;
+        border-right: 150px solid transparent;
+        border-bottom: 50px solid brown;
+        border-radius: 100px;
+        transform: translate(-70%, -50%) rotate(45deg);
 
     }
 }
