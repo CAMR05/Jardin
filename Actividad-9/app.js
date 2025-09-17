@@ -8,11 +8,14 @@ canvas.height = window.objHeight;
 
 window.addEventListener("mousedown", function () {
     const objeto = this.document.querySelector(".objeto");
-    const objWidth = objeto.offsetWidth || 300;
-    const objHeight = objeto.offsetHeight || 50;
+    const objWidth = 300;
+    const objHeight = 50;
 
-    const maxX = this.window.innerWidth - objWidth;
-    const maxY = this.window.innerHeight - objHeight;
+    const offsetX = objWidth * 0.8;
+    const offsetY = objHeight * 0.7;
+
+    const maxX = this.window.innerWidth - objWidth - offsetX;
+    const maxY = this.window.innerHeight - objHeight - offsetY;
 
     const randomX = Math.random() * maxX;
     const randomY = Math.random() * maxY;

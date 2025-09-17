@@ -28,7 +28,7 @@ body{
         border-right: 150px solid transparent;
         border-bottom: 50px solid red;
         border-radius: 100px;
-        transform: translate(-70%, -50%) rotate(45deg);
+        transform: translate(-80%, -70%) rotate(45deg);
 
     }
 }
