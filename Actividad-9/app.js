@@ -11,11 +11,11 @@ window.addEventListener("mousedown", function () {
     const objWidth = 300;
     const objHeight = 50;
 
-    const offsetX = objWidth * 0.8;
-    const offsetY = objHeight * 0.7;
+    const offsetX = objWidth * 1;
+    const offsetY = objHeight * 0.9;
 
-    const maxX = this.window.innerWidth - objWidth - offsetX;
-    const maxY = this.window.innerHeight - objHeight - offsetY;
+    const maxX = window.innerWidth - objWidth - offsetX;
+    const maxY = window.innerHeight - objHeight - offsetY;
 
     const randomX = Math.random() * maxX;
     const randomY = Math.random() * maxY;
