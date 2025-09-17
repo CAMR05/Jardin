@@ -20,15 +20,15 @@ body{
 
     .objeto{
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 0;
+        left: 0;
         width: 0px;
         height: 0px;
         border-left: 150px solid transparent;
         border-right: 150px solid transparent;
         border-bottom: 50px solid red;
         border-radius: 100px;
-        transform: translate(-100%, -90%) rotate(45deg);
+        /*transform: translate(-100%, -90%) rotate(45deg);*/
 
     }
 }
