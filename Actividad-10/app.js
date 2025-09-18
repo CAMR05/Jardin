@@ -16,7 +16,7 @@ const camera = new THREE.PerspectiveCamera(45, canvas.width/canvas.height,0.1, 1
 //Mesh
 ////Geometría
 //SphereGeometry(radius, radialSegments, heightSegments);
-const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+
 const geometry = new THREE.CylinderGeometry(1,1,5);
 const geometry2 = new THREE.ConeGeometry(3,4,20,30);
 const geometry3 = new THREE.ConeGeometry(2,3,20,30);
@@ -73,6 +73,7 @@ textureLoader.load(
        mesh4.position.z = -15;
 
        window.addEventListener("mousedown", function (){
+        const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
         mesh2.material.color.set(randomColor);
         mesh3.material.color.set(randomColor);
         mesh4.material.color.set(randomColor);
