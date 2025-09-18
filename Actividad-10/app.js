@@ -1,4 +1,4 @@
-console.log("Actividad Jardín 2. Árbol");
+console.log("Actividad Jardín 10. Árbol con color random");
 console.log(THREE);
 
 const canvas = document.getElementById("lienzo");
