@@ -1,4 +1,4 @@
-console.log("Actividad Jardín 2. Árbol");
+console.log("Actividad Jardín 11. Árbol Zoom");
 console.log(THREE);
 
 const canvas = document.getElementById("lienzo");

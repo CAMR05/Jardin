@@ -16,15 +16,15 @@
     position: absolute;
     top: 0;
     left: 0;
-    color:green;
+    color:rgb(0, 255, 0);
     background-color: brown;
     padding: 15px 50px;
 }
 #boton2{
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 0;
-    color:green;
+    color:rgb(0, 255, 0);
     background-color: brown;
     padding: 15px 50px;
 }
