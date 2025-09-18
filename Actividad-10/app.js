@@ -84,7 +84,9 @@ textureLoader.load(
             );
         },
     function (error) { console.error("Algo salio mal con la textura 4,", error); }
-    );
+      );
+    }
+)
 
 
 
