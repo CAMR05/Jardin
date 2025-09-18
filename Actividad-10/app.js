@@ -38,7 +38,11 @@ var matcapMaterial2;
 var mesh;
 var mesh2;
 var mesh3;
-var mesh4; 
+var mesh4;
+
+window.addEventListener("mousedown", function (eventData) {
+    
+
 textureLoader.load(
    // Textura URL
    './texturas/matcap3.png',
