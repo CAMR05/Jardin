@@ -1,4 +1,4 @@
-console.log("Actividad Jardín 10. Árbol con color random");
+console.log("Actividad Jardín 2. Árbol");
 console.log(THREE);
 
 const canvas = document.getElementById("lienzo");
@@ -16,7 +16,6 @@ const camera = new THREE.PerspectiveCamera(45, canvas.width/canvas.height,0.1, 1
 //Mesh
 ////Geometría
 //SphereGeometry(radius, radialSegments, heightSegments);
-
 const geometry = new THREE.CylinderGeometry(1,1,5);
 const geometry2 = new THREE.ConeGeometry(3,4,20,30);
 const geometry3 = new THREE.ConeGeometry(2,3,20,30);
@@ -35,7 +34,7 @@ MeshNormalMaterial({
 // Material.
 const textureLoader = new THREE.TextureLoader();
 var matcapMaterial;
-var colorMaterial;
+var matcapMaterial2;
 var mesh;
 var mesh2;
 var mesh3;
@@ -49,14 +48,12 @@ textureLoader.load(
 textureLoader.load(
     './texturas/matcap4.png',
    function (texture2) {
-       colorMaterial = new THREE.MeshPhongMaterial( {
-        flatShading: true,
-        color: "#005e17" } );
+       matcapMaterial2 = new THREE.MeshMatcapMaterial( { matcap: texture2 } );
        // Mesh.
        mesh = new THREE.Mesh( geometry, matcapMaterial );
-       mesh2 = new THREE.Mesh( geometry2, colorMaterial );
-       mesh3 = new THREE.Mesh( geometry3, colorMaterial );
-       mesh4 = new THREE.Mesh( geometry4, colorMaterial );
+       mesh2 = new THREE.Mesh( geometry2, matcapMaterial2 );
+       mesh3 = new THREE.Mesh( geometry3, matcapMaterial2 );
+       mesh4 = new THREE.Mesh( geometry4, matcapMaterial2 );
        // 3. Poner objeto en la escena.
        scene.add(mesh,mesh2,mesh3,mesh4);
        mesh.position.x = 1;
@@ -71,13 +68,6 @@ textureLoader.load(
        mesh4.position.x = 1;
        mesh4.position.y = 5;
        mesh4.position.z = -15;
-
-       boton.addEventListener("mousedown", function (){
-        const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
-        mesh2.material.color.set(randomColor);
-        mesh3.material.color.set(randomColor);
-        mesh4.material.color.set(randomColor);
-       })
 
        
        // 4. Activar animación.
@@ -111,16 +101,6 @@ function animate() {
 
    renderer.render(scene, camera);
 }
-
-const topLight = new THREE.PointLight("#ffffff", 100, 100);
-topLight.position.y = 5;
-scene.add(topLight);
-
-const frontLight = new THREE.PointLight("#ffffff", 100, 100);
-frontLight.position.set(3,1,3);
-scene.add(frontLight);
-
-
 
 //animate();
 

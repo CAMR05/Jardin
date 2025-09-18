@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.lienzo {
+        position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+#boton1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color:green;
+    background-color: brown;
+    padding: 15px 50px;
+}
+#boton2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color:green;
+    background-color: brown;
+    padding: 15px 50px;
+}
