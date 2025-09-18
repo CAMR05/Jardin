@@ -28,3 +28,11 @@
     background-color: brown;
     padding: 15px 50px;
 }
+#boton3{
+    position: absolute;
+    top: 10%;
+    left: 0;
+    color:rgb(0, 255, 0);
+    background-color: brown;
+    padding: 15px 50px;
+}

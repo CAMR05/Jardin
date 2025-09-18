@@ -11,7 +11,11 @@ const scene = new THREE.Scene();
 
 //Cámara
 //const camera = new THREE.Camera(fov, aspectRatio, near, far);
-const camera = new THREE.PerspectiveCamera(45, canvas.width/canvas.height,0.1, 1000);
+const camera = new THREE.PerspectiveCamera(
+    fov = 45, 
+    canvas.width/canvas.height,
+    0.1, 
+    1000);
 
 //Mesh
 ////Geometría
@@ -69,7 +73,21 @@ textureLoader.load(
        mesh4.position.y = 5;
        mesh4.position.z = -15;
 
-       
+       boton1.addEventListener("mousedown", function (){
+        const fov = 20;
+        camera.fov = fov;
+        camera.updateProjectionMatrix();
+       })
+       boton2.addEventListener("mousedown", function (){
+        const fov = 70;
+        camera.fov = fov;
+        camera.updateProjectionMatrix();
+       })
+       boton3.addEventListener("mousedown", function (){
+        const fov = 45;
+        camera.fov = fov;
+        camera.updateProjectionMatrix();
+       })
        // 4. Activar animación.
        animate();
    },
