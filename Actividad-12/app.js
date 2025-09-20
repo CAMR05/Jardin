@@ -43,6 +43,8 @@ var mesh;
 var mesh2;
 var mesh3;
 var mesh4; 
+
+let arbolGroup = new THREE.Group();
        let targetRotationX = 0;
        let targetRotationY = 0;
        let targetRotationZ = 0;
@@ -63,21 +65,14 @@ textureLoader.load(
        mesh4 = new THREE.Mesh( geometry4, matcapMaterial2 );
        // 3. Poner objeto en la escena.
        scene.add(mesh,mesh2,mesh3,mesh4);
-       mesh.position.x = 1;
-       mesh.position.y = -3;
-       mesh.position.z = -15;
-       mesh2.position.x = 1;
-       mesh2.position.y = 1;
-       mesh2.position.z = -15;
-       mesh3.position.x = 1;
-       mesh3.position.y = 3;
-       mesh3.position.z = -15;
-       mesh4.position.x = 1;
-       mesh4.position.y = 5;
-       mesh4.position.z = -15;
+       mesh.position.set (1,-3,-15);
+       mesh2.position.set (1,1,-15);
+       mesh3.position.set (1,3,-15);
+       mesh4.position.set (1,5,-15);
 
+       arbolGroup.add(mesh,mesh2,mesh3,mesh4);
 
-
+       scene.add(arbolGroup);
 
        boton1.addEventListener("mousedown", function (){
        targetRotationX += Math.PI * 4;
@@ -117,9 +112,9 @@ renderer.render(scene, camera);
 function animate() {
    requestAnimationFrame(animate);
 
-    mesh.rotation.x += (targetRotationX - mesh.rotation.x)*0.03;
-    mesh.rotation.y += (targetRotationY - mesh.rotation.y)*0.03;
-    mesh.rotation.z += (targetRotationZ - mesh.rotation.z)*0.03;
+    arbolGroup.rotation.x += (targetRotationX -   arbolGroup.rotation.x)*0.03;
+    arbolGroup.rotation.y += (targetRotationY -   arbolGroup.rotation.y)*0.03;
+    arbolGroup.rotation.z += (targetRotationZ -   arbolGroup.rotation.z)*0.03;
 
    renderer.render(scene, camera);
 }
