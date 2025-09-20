@@ -73,6 +73,10 @@ textureLoader.load(
        mesh4.position.y = 5;
        mesh4.position.z = -15;
 
+
+       let targetRotationX = 0;
+       let targetRotationY = 0;
+       let targetRotationZ = 0;
        boton1.addEventListener("mousedown", function (){
        mesh.rotation.x += 0.01;
        })
