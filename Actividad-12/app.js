@@ -43,6 +43,9 @@ var mesh;
 var mesh2;
 var mesh3;
 var mesh4; 
+       let targetRotationX = 0;
+       let targetRotationY = 0;
+       let targetRotationZ = 0;
 textureLoader.load(
    // Textura URL
    './texturas/matcap3.png',
@@ -74,17 +77,16 @@ textureLoader.load(
        mesh4.position.z = -15;
 
 
-       let targetRotationX = 0;
-       let targetRotationY = 0;
-       let targetRotationZ = 0;
+
+
        boton1.addEventListener("mousedown", function (){
-       mesh.rotation.x += 0.01;
+       targetRotationX += Math.PI * 4;
        })
        boton2.addEventListener("mousedown", function (){
-        mesh.rotation.y += 0.01;
+       targetRotationY += Math.PI * 4;
        })
        boton3.addEventListener("mousedown", function (){
-        mesh.rotation.z += 0.01;
+       targetRotationZ += Math.PI * 4;
        })
        // 4. Activar animación.
        animate();
@@ -114,6 +116,10 @@ renderer.render(scene, camera);
 // Tip para animar nuestro mesh:
 function animate() {
    requestAnimationFrame(animate);
+
+    mesh.rotation.x += (targetRotationX - mesh.rotation.x)*4;
+    mesh.rotation.y += (targetRotationY - mesh.rotation.y)*4;
+    mesh.rotation.z += (targetRotationZ - mesh.rotation.z)*4;
 
    renderer.render(scene, camera);
 }
