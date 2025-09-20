@@ -117,9 +117,9 @@ renderer.render(scene, camera);
 function animate() {
    requestAnimationFrame(animate);
 
-    mesh.rotation.x += (targetRotationX - mesh.rotation.x)*4;
-    mesh.rotation.y += (targetRotationY - mesh.rotation.y)*4;
-    mesh.rotation.z += (targetRotationZ - mesh.rotation.z)*4;
+    mesh.rotation.x += (targetRotationX - mesh.rotation.x)*0.03;
+    mesh.rotation.y += (targetRotationY - mesh.rotation.y)*0.03;
+    mesh.rotation.z += (targetRotationZ - mesh.rotation.z)*0.03;
 
    renderer.render(scene, camera);
 }
