@@ -84,25 +84,27 @@ function animate() {
    renderer.render(scene, camera);
 }
 window.addEventListener("mousedown", function () {
-        gsap.to(mesh.position,
+    const tl = gsap.timeline();
+        tl.to(
+            mesh.position,
             {
-                x:0.5,
                 y:2.5,
-                duration:3, //segundos
-                ease:"sine.inOut",
-                onComplete:function() {
-                    gsap.to(
+                x:0.5,
+                
+                duration:4, //segundos
+                ease:"power1.in",
+                }
+        );
+                    tl.to(
                         mesh.position,
                         {
                             x:8,
                             y:-3,
-                            duration:3,
-                            ease:"sine.inOut",
-                        }
-                    )
-                }
-            }
-        );
+                            duration:4,
+                            ease:"power1.out",
+                        },
+                   "-=0.4" );
+                
 });
 animate();
 
