@@ -91,20 +91,29 @@ window.addEventListener("mousedown", function () {
                 y:2.5,
                 x:0.5,
                 
-                duration:4, //segundos
+                duration:2.5, //segundos
                 ease:"power1.in",
                 }
         );
                     tl.to(
                         mesh.position,
                         {
-                            x:8,
-                            y:-3,
-                            duration:4,
+                            x:2,
+                            duration:1,
                             ease:"power1.out",
                         },
-                   "-=0.4" );
+                   "-=0.5" );
                 
-});
+                tl.to(
+                                        mesh.position,
+                                        {
+                                            x:6,
+                                            y:-3,
+                                            duration:4,
+                                            ease:"power1.out",
+                                        },
+                                "-=0.3" );
+                                
+                });
 animate();
 
