@@ -26,10 +26,10 @@ MeshNormalMaterial({
 
 
 //fondo de la escena
-scene.background = new THREE.Color("#000658");
+scene.background = new THREE.Color("#943f02");
 
 const planeGeometry = new THREE.PlaneGeometry(50,50);
-const planeMaterial = new THREE.MeshBasicMaterial({color:"#000658"});
+const planeMaterial = new THREE.MeshBasicMaterial({color:"#943f02"});
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 plane.rotation.x = -Math.PI/2;
 plane.position.y = -6;
