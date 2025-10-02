@@ -1,6 +1,7 @@
 console.log("Actividad Jardín 1. Atardecer");
 console.log(gsap); 
 console.log(THREE);
+gsap.registerPlugin(MotionPathPlugin) 
 
 const canvas = document.getElementById("lienzo");
 canvas.width = window.innerWidth;
@@ -84,36 +85,24 @@ function animate() {
    renderer.render(scene, camera);
 }
 window.addEventListener("mousedown", function () {
-    const tl = gsap.timeline();
-        tl.to(
-            mesh.position,
-            {
-                y:2.5,
-                x:0.5,
-                
-                duration:2.5, //segundos
-                ease:"power1.in",
-                }
-        );
-                    tl.to(
-                        mesh.position,
-                        {
-                            x:2,
-                            duration:1,
-                            ease:"power1.out",
-                        },
-                   "-=0.5" );
-                
-                tl.to(
-                                        mesh.position,
-                                        {
-                                            x:6,
-                                            y:-3,
-                                            duration:4,
-                                            ease:"power1.out",
-                                        },
-                                "-=0.3" );
-                                
-                });
+    const startPos = { x: mesh.position.x, y: mesh.position.y };
+    
+    gsap.to(mesh.position, {
+        duration: 5, // Duración total del viaje
+        ease: "power1.inOut", // El ease general es lineal, el control está en cada keyframe
+        motionPath: {
+
+            path: [
+            // Primer tramo: subir
+            {x: 0.3,y: 0.5,},
+            // Segundo tramo: moverse horizontalmente
+            {x: 1, y: 0.5,},
+            // Tercer tramo: bajar
+            {x: 7,y: -3,}
+            ]
+        }
+        
+    });
+});
 animate();
 
