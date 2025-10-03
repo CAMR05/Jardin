@@ -14,8 +14,8 @@ ctx.lineWidth = 4;
     for (let i = 0; i < 15; i++) {
         let y = 100 + i * 20;
         let x = 50 + i * 20;
-    ctx.moveTo(500 + x, 60);
-    ctx.lineTo(500 + x, 60 + y);
+    ctx.moveTo(400 + x, 60);
+    ctx.lineTo(400 + x, 60 + y);
     }
 
     for (let i = 0; i < 15; i++) {
@@ -28,7 +28,7 @@ ctx.lineWidth = 4;
     for (let i = 0; i < 15; i++) {
         let y = 100 + i * 20;
     ctx.moveTo(300, 60 + y);
-    ctx.lineTo(850, 60 + y);
+    ctx.lineTo(755, 60 + y);
     }
 
 ctx.fill();

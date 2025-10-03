@@ -26,9 +26,9 @@ MeshPhongMaterial({
 for (let i = 0; i < 15; i++) {
     let x = 500 + 70 + i * 50; 
     for (let j = 0; j < 10; j++) { 
-        let y = 60 + j * 70;
+        let y = 60 + j * 80;
         const box = new THREE.Mesh(geometry, material);
-        box.position.set((x - canvas.width/2) * 0.05, (y - canvas.height/2) * -0.05, -20);
+        box.position.set((x - canvas.width/2 - 200) * 0.05, (y - canvas.height/2) * -0.05, -20);
         scene.add(box);
     }
 }
@@ -41,7 +41,7 @@ for (let i = 0; i < 15; i++) {
     for (let j = 0; j < 20; j++) {
         let x = 500 + j * 40;
         const box = new THREE.Mesh(geometry, material);
-        box.position.set((x - canvas.width/2) * 0.05, (y - canvas.height/2) * -0.05, -20);
+        box.position.set((x - canvas.width/2 - 200) * 0.05, (y - canvas.height/2) * -0.05, -20);
         scene.add(box);
     }
 }
