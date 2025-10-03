@@ -41,7 +41,7 @@ window.addEventListener("mousedown", function () {
             ".ceja2",
             {
                 y:innerHeight/2 -40,
-                x:-265,
+                x:-290,
 
                     duration:3, //segundos
                 ease:"power1.out",
