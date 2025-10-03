@@ -9,16 +9,18 @@ const ctx = canvas.getContext('2d');
 ctx.beginPath();
 
 ctx.strokeStyle ="#ffffff";
-ctx.lineWidth = 7;
+
 
     for (let i = 0; i < 90; i++) {
-        let x = 50 + i * 20;
+        ctx.lineWidth = 3 + Math.sin(i * 0.5) * 3;
+        let x = 70 + i * 30;
     ctx.moveTo(0 + x, 60);
     ctx.lineTo(0 + x, canvas.height - 60);
     }
 
     for (let i = 0; i < 90; i++) {
-        let y = 50 + i * 20;
+        ctx.lineWidth = 7 + Math.sin(i * 0.5) * 3;
+        let y = 70 + i * 30;
     ctx.moveTo(60, 0 + y);
     ctx.lineTo(canvas.width - 60, 0 + y);
     }
