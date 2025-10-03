@@ -21,15 +21,14 @@ ctx.lineWidth = 4;
     for (let i = 0; i < 15; i++) {
         let y = 100 + i * 20;
         let x = 50 + i * 20;
-    ctx.moveTo(canvas.width/2 + x, 540 - y);
-    ctx.lineTo(canvas.width/2 + x, 60);
+    ctx.moveTo(canvas.width/2 -200 + x, 540 - y);
+    ctx.lineTo(canvas.width/2 - 200 + x, 60);
     }
 
     for (let i = 0; i < 15; i++) {
         let y = 100 + i * 20;
-        let x = 50 + i * 20;
-    ctx.moveTo(500, 60 + y);
-    ctx.lineTo(1250, 60 + y);
+    ctx.moveTo(300, 60 + y);
+    ctx.lineTo(850, 60 + y);
     }
 
 ctx.fill();
