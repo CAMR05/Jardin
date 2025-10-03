@@ -101,6 +101,16 @@ textureLoader.load(
 const renderer = new THREE.WebGLRenderer({canvas: canvas});
 renderer.setSize(canvas.width, canvas.height);
 
+ window.addEventListener("resize", function () {
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    renderer.setSize(canvas.width, canvas.height);
+    camera.aspect = canvas.width / canvas.height;
+    camera.updateProjectionMatrix();
+
+renderer.render(scene, camera);
+});
 
 //Dar instrucción de renderizar o imprimir nuestro primer frame
 renderer.render(scene, camera);
