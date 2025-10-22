@@ -1,4 +1,4 @@
-console.log("Actividad Jardín 11. Árbol Zoom");
+console.log("Actividad Jardín 13 Seno y Coseno - Three.js");
 console.log(THREE);
 
 const canvas = document.getElementById("lienzo");
