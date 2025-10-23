@@ -1,69 +1,70 @@
 console.log("Actividad Jardín 13 Seno y Coseno - Three.js");
-console.log(THREE);
 
+// 1. Obtenemos el canvas del HTML
 const canvas = document.getElementById("lienzo");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
-//Creamos nuestros elementos básicos:
-//Escena
+// 2. Configuración básica (usando el canvas existente)
 const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ 
+    canvas: canvas,
+    antialias: true 
+});
+renderer.setSize(window.innerWidth, window.innerHeight);
 
-        // 2. Crear el Mesh (el objeto)
-        const geometry = new THREE.BoxGeometry(1, 1, 1);
-        const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
-        const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
+// 3. Crear el Mesh (Cono)
+const geometry = new THREE.ConeGeometry();
+const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+const cone = new THREE.Mesh(geometry, material);
+scene.add(cone);
 
-        // Añadir una luz para ver el cubo
-        const light = new THREE.DirectionalLight(0xffffff, 3);
-        light.position.set(1, 1, 1);
-        scene.add(light);
-        const ambientLight = new THREE.AmbientLight(0x404040);
-        scene.add(ambientLight);
+// 4. Luces
+const light = new THREE.DirectionalLight(0xffffff, 3);
+light.position.set(1, 1, 1);
+scene.add(light);
+const ambientLight = new THREE.AmbientLight(0x404040);
+scene.add(ambientLight);
 
-        // Posición inicial de la cámara
-        camera.position.z = 5;
+// 5. Posición de la Cámara
+camera.position.z = 5;
 
-        // 3. El Reloj (para manejar el tiempo)
-        const clock = new THREE.Clock();
+// 6. Reloj
+const clock = new THREE.Clock();
 
-        // 4. Parámetros de levitación
-        const alturaBase = 0.5;   // El punto central de la levitación
-        const amplitud = 0.75;  // Cuánto sube y baja desde el punto central
-        const velocidad = 2;    // Qué tan rápido sube y baja
+// 7. Parámetros de la animación
+const centroX = 0;      // Punto central del movimiento horizontal
+const alturaBase = 0.5;   // Punto central del movimiento vertical
+const amplitud = 1.5;   // Qué tan lejos se mueve desde el centro (en X y Y)
+const velocidad = 2;    // Qué tan rápido se mueve
 
-        // 5. El Bucle de Animación
-        function animate() {
-            requestAnimationFrame(animate);
+// 8. Bucle de Animación
+function animate() {
+    requestAnimationFrame(animate);
 
-            // Obtener el tiempo transcurrido
-            const elapsedTime = clock.getElapsedTime();
+    // Obtener el tiempo transcurrido
+    const elapsedTime = clock.getElapsedTime();
 
-            // --- ¡Aquí está la magia! ---
-            // Usamos seno para la posición Y
-            cube.position.y = alturaBase + (Math.sin(elapsedTime * velocidad) * amplitud);
+    // --- ¡Aquí está la magia de Seno y Coseno! ---
 
-            // (Opcional) Podemos usar coseno para otra cosa, como la rotación
-            cube.rotation.x = elapsedTime * 0.5;
-            cube.rotation.y = elapsedTime * 0.5;
+    // Usamos Coseno (Math.cos) para la posición X (movimiento horizontal)
+    // Empieza en 1 * amplitud (en el extremo derecho)
+    cone.position.x = centroX + (Math.cos(elapsedTime * velocidad) * amplitud);
 
-            // Renderizar la escena
-            renderer.render(scene, camera);
-        }
-
-        // Manejar redimensionamiento de ventana
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        // ¡Empezar la animación!
-        animate();
+    // Usamos Seno (Math.sin) para la posición Y (movimiento vertical)
+    // Empieza en 0 (en el centro vertical)
+    cone.position.y = alturaBase + (Math.sin(elapsedTime * velocidad) * amplitud);
 
 
+    // Renderizar la escena
+    renderer.render(scene, camera);
+}
+
+// Manejar redimensionamiento
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// ¡Empezar la animación!
+animate();
