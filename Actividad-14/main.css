@@ -23,19 +23,13 @@ h1 {
     color: #FFFFFF;
 }
 
-container{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
 
 h3{
     position: absolute;
-    bottom: 90px;
-    right: 10%;
+    top: 50%;
+    left: 41%;
     font-family: 'Times New Roman', sans-serif;
-    font-size: 80px;
+    font-size: 15px;
     color: #FFFFFF;
-}
 }
