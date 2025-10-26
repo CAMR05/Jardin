@@ -17,19 +17,60 @@ body {
 h1 {
     position: absolute;
     top: 90px;
-    left: 10%;
-    font-family: 'Times New Roman', sans-serif;
-    font-size: 200px;
+    left: 7%;
+    font-family: 'Arial', sans-serif;
+    font-size: 190px;
     color: #FFFFFF;
+    justify-content: center;
+}
+
+#pre-footer {
+     position: absolute;
+    top: 65%; left: 40%;
+    padding: 0px;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    color: #FFFFFF;
+    font-size: 30px;
+}
+
+#folio{
+    position: absolute;
+    font-family: 'Times New Roman', sans-serif;
+    font-style: italic;
+    color: #FFFFFF;
+    justify-content: center;
+}
+
+#middle {
+     position: absolute;
+    top: 45%; left: 0;
+    padding: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 
+footer {
+    position: absolute;
+    bottom: 40px; left: 7%;
+    padding: 0px;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    color: #535252;
+    font-size: 20px;
+}
 
 h3{
-    position: absolute;
-    top: 50%;
-    left: 41%;
     font-family: 'Times New Roman', sans-serif;
     font-size: 15px;
+    justify-content: space-between;
     color: #FFFFFF;
 }
+
+
+
+
+
+
