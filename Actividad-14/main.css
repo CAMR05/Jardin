@@ -19,7 +19,7 @@ h1 {
     top: 90px;
     left: 7%;
     font-family: 'Arial', sans-serif;
-    font-size: 190px;
+    font-size: 185px;
     color: #FFFFFF;
     justify-content: center;
 }
@@ -60,12 +60,13 @@ footer {
     font-family: Arial, sans-serif;
     color: #535252;
     font-size: 20px;
+    justify-content: center;
 }
 
 h3{
     font-family: 'Times New Roman', sans-serif;
     font-size: 15px;
-    justify-content: space-between;
+    justify-content: center;
     color: #FFFFFF;
 }
 
