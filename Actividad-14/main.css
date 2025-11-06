@@ -5,7 +5,7 @@
 }
 
 body {
-        position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -58,7 +58,7 @@ footer {
     padding: 0px;
     width: 100%;
     font-family: Arial, sans-serif;
-    color: #535252;
+    background-color : #ff0000;
     font-size: 20px;
     justify-content: center;
 }
