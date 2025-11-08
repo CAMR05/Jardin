@@ -1,75 +1,156 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
+        /* --- ESTILOS GENERALES --- */
+        body {
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+            height: 100vh;       /* Ocupa toda la altura de la pantalla */
+            display: flex;       /* Convierte el body en un contenedor flexible */
+            flex-direction: column; /* Organiza los hijos en columna vertical */
+            padding: 2rem;       /* Un poco de margen interno general */
+            font-family: 'Inter', sans-serif; /* Fuente por defecto si falla la otra */
+            overflow: hidden;    /* Evita barras de desplazamiento si no son necesarias */
+        }
 
-}
+        /* Para pantallas grandes (como 1440px), aumentamos el padding */
+        @media (min-width: 1024px) {
+            body { padding: 3rem 4rem; }
+        }
 
-h1 {
-    position: absolute;
-    top: 90px;
-    left: 7%;
-    font-family: 'Arial', sans-serif;
-    font-size: 185px;
-    color: #FFFFFF;
-    justify-content: center;
-}
+        /* --- TIPOGRAFÍA ESPECÍFICA --- */
+        /* Clases utilitarias para simular el diseño original */
+        .font-editorial { font-family: 'Bodoni Moda', serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
 
-#pre-footer {
-     position: absolute;
-    top: 65%; left: 40%;
-    padding: 0px;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    color: #FFFFFF;
-    font-size: 30px;
-}
+        /* --- HEADER (NING HUANG '25) --- */
+        header {
+            margin-bottom: 4rem;
+            width: 100%;
+        }
 
-#folio{
-    position: absolute;
-    font-family: 'Times New Roman', sans-serif;
-    font-style: italic;
-    color: #FFFFFF;
-    justify-content: center;
-}
+        header h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 13vw;     /* Tamaño responsivo basado en el ancho de la pantalla */
+            line-height: 0.8;    /* Reduce el espacio entre líneas si se rompe */
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: -0.05em; /* Junta un poco las letras */
+            display: flex;       /* Flex para separar NING y HUANG */
+            justify-content: space-between; /* Empuja los elementos a los extremos */
+            flex-wrap: wrap;     /* Permite que baje de línea en pantallas muy pequeñas */
+        }
 
-#middle {
-     position: absolute;
-    top: 45%; left: 0;
-    padding: 50px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
+        /* Ajuste para pantallas muy grandes para que no crezca infinito */
+        @media (min-width: 1440px) {
+            header h1 { font-size: 11rem; }
+        }
 
+        header h1 .year {
+            font-weight: 300;
+            font-style: italic;
+        }
 
-footer {
-    position: absolute;
-    bottom: 40px; left: 7%;
-    padding: 0px;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    background-color : #ff0000;
-    font-size: 20px;
-    justify-content: center;
-}
+         #middle {
+            display: flex;
+            justify-content: space-between; /* Uno a la izq, uno al centro, uno a la derecha */
+            align-items: center;
+            width: 100%;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+            margin-bottom: auto; /* Empuja todo lo que esté debajo hacia el fondo */
+        }
 
-h3{
-    font-family: 'Times New Roman', sans-serif;
-    font-size: 15px;
-    justify-content: center;
-    color: #FFFFFF;
-}
+        #middle h3 {
+            font-weight: normal; /* Quitamos la negrita por defecto de los h3 */
+        }
 
+        /* El elemento del centro necesita márgenes para no pegarse si la pantalla es chica */
+        #middle h3:nth-child(2) {
+            text-align: center;
+            margin: 0 1rem;
+        }
+
+        /* --- PRE-FOOTER (DESIGN FOLIO) --- */
+        #pre-footer {
+            flex-grow: 1; /* Ocupa todo el espacio disponible verticalmente */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2; /* Para que quede por encima de la textura del footer */
+        }
+
+        #pre-footer h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 4rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+        /* Hacemos responsivo el tamaño del título central */
+        @media (max-width: 768px) {
+            #pre-footer h2 { font-size: 2.5rem; }
+        }
+
+        #pre-footer #folio {
+            font-family: 'Bodoni Moda', serif;
+            font-style: italic;
+            font-weight: 300;
+            margin-left: 0.5rem; /* Espacio después del guion */
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            z-index: 2;
+            padding-bottom: 1rem;
+        }
+
+        footer h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            line-height: 1.6;
+            opacity: 0.7;
+            max-width: 500px; /* Limita el ancho para que el texto baje en 2 líneas como el original */
+            margin: 0 auto;   /* Centra el bloque de texto */
+        }
+
+        /* --- EFECTOS DE FONDO (TEXTURA) --- */
+        /* Usamos pseudo-elementos en el body para no ensuciar tu HTML */
+        body::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, #dadada 0%, transparent 100%);
+            opacity: 0.15;
+            pointer-events: none; /* Permite hacer click a través de la textura */
+            mix-blend-mode: screen;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            /* Un gradiente complejo para simular ruido/metal */
+            background: radial-gradient(ellipse at bottom, rgba(255,255,255,0.2) 0%, transparent 70%);
+            filter: contrast(150%) brightness(700%) grayscale(100%);
+            opacity: 0.3;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
 
 
 
