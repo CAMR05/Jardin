@@ -114,7 +114,7 @@
         footer h3 {
             font-family: 'JetBrains Mono', monospace;
             font-weight: 400;
-            font-size: 0.65rem;
+            font-size: 0.8rem;
             letter-spacing: 0.2em;
             line-height: 1.6;
             opacity: 0.7;
@@ -130,8 +130,8 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 40%;
-            background:radial-gradient() #0a0a0a;
+            height: 20%;
+            background:radial-gradient(#0a0a0a, #e5e5e5);
             opacity: 0.15;
             pointer-events: none; /* Permite hacer click a través de la textura */
             mix-blend-mode: screen;
