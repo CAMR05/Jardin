@@ -1,14 +1,207 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.lienzo {
-        position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+        body {
+            background-color: #f6f6f6; /* Un gris muy claro, casi blanco */
+            color: #111;
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
 
-}
+        /* Contenedor principal limitado a 1440px para la simulación */
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px; /* Margen lateral */
+            position: relative;
+        }
+
+        /* --- HEADER --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-top: 30px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .logo {
+            font-weight: 900;
+            line-height: 0.9;
+            font-size: 1.1rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Efecto de corchetes [ ] */
+        nav a::before { content: '[ '; color: #555; margin-right: 5px; }
+        nav a::after { content: ' ]'; color: #555; margin-left: 5px; }
+
+        .contact-btn {
+            text-decoration: none;
+            color: inherit;
+            border-bottom: 2px solid #111;
+            padding-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .arrow { font-size: 1.2em; line-height: 0; }
+
+        /* --- SECCIÓN PRINCIPAL (HERO) --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            /* Ajustamos márgenes para compactar como en el diseño */
+        }
+
+        /* Pequeño número sobre el título */
+        .counter {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: -10px; /* Pegado al título */
+            display: block;
+            border-bottom: 1px solid #111;
+            width: fit-content;
+            padding-bottom: 2px;
+        }
+
+        /* EL TÍTULO GIGANTE */
+        h1 {
+            font-size: 15.5vw; /* Tamaño masivo responsivo */
+            line-height: 0.8;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+            white-space: nowrap; /* Forzar una línea */
+            width: 100%;
+            text-align: center;
+            margin-left: -2%; /* Ajuste óptico para centrar visualmente */
+        }
+
+        /* Subtítulo alineado a la derecha */
+        .location {
+            text-align: right;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4em; /* Espaciado amplio entre letras */
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        /* --- SECCIÓN CENTRAL (IMAGEN Y SERVICIOS) --- */
+        /* Esta sección se superpone visualmente o continúa el flujo */
+        .content-block {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: -40px; /* Superposición ligera o ajuste hacia arriba */
+            z-index: 10;
+        }
+
+        .gray-card {
+            background-color: #ededed; /* El cuadro gris de fondo */
+            width: 50%; /* Ancho aproximado del bloque central */
+            min-height: 400px;
+            display: flex;
+            position: relative;
+            padding: 0;
+        }
+
+        /* Lista de servicios a la izquierda dentro de la tarjeta */
+        .services-list {
+            position: absolute;
+            bottom: 30px;
+            left: -80px; /* Sacamos el texto fuera de la caja gris hacia la izquierda */
+            text-align: left;
+            z-index: 20;
+        }
+
+        .services-list ul {
+            list-style: none;
+        }
+
+        .services-list li {
+            font-size: 1.6rem; /* Texto grande y bold */
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 5px;
+            white-space: nowrap;
+        }
+        
+        /* Simular el color negro fuerte */
+        .services-list li { color: #111; }
+
+        /* La imagen */
+        .portrait-container {
+            width: 320px; /* Ancho fijo para el retrato */
+            height: 400px;
+            background-color: #ccc;
+            margin: 0 auto; /* Centrada en la tarjeta gris */
+            margin-top: -60px; /* Hacemos que la imagen suba un poco, rompiendo el grid hacia arriba */
+            overflow: hidden;
+            position: relative;
+            z-index: 15;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .portrait-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%); /* Efecto blanco y negro */
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            margin-top: auto; /* Empujar al fondo */
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            max-width: 500px;
+            margin: 0 auto;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            line-height: 1.6;
+            letter-spacing: 0.05em;
+            color: #333;
+        }
+
+        /* --- AJUSTES PARA LA RESOLUCIÓN 1440x750 ESPECÍFICA --- */
+        @media (min-width: 1400px) {
+            h1 { font-size: 13.5rem; } /* Ajuste fino para que llene el ancho */
+            .content-block { margin-top: -20px; }
+            .gray-card { height: 350px; width: 45%; }
+            .portrait-container { width: 280px; height: 350px; margin-top: -80px; }
+            .services-list { left: -100px; bottom: 20px; }
+            .services-list li { font-size: 1.4rem; }
+        }
