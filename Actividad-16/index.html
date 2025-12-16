@@ -1,13 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actividad Jardín 16. Layout Practice III</title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
     <canvas id="lienzo"></canvas>
-    <script src="./app.js"></script>
+    <div class="container">
+
+        <!-- COLUMNA 1 -->
+        <div class="col">
+            <!-- Arriba: Imagen Tubo Naranja -->
+            <div class="card c1-top">
+                <h2>Your 360° partner in electromobility</h2>
+            </div>
+
+
+            <div class="card c1-bot">
+
+                <div class="black-tube"></div>
+
+                <div class="nav-circles">
+                    <div class="circle-btn"><i data-lucide="chevron-left" width="14"></i></div>
+                    <div class="circle-btn"><i data-lucide="chevron-right" width="14"></i></div>
+                </div>
+
+                <div class="c1-bot-content">
+                    <div>
+                        <div class="product-title">Periflex<br>DURA HA</div>
+                    </div>
+
+                    <div class="specs-group">
+                        <div class="specs-label">Operating Temperature</div>
+                        <div class="specs-val">-70°C to +125°C</div>
+
+                        <div class="specs-label">Mechanical Protection</div>
+                        <div class="specs-val">ISO 6722-1 Class 7<br><span
+                                style="font-size: 0.8em; font-weight: 400;">(100.000 - 199.999 cycles)</span></div>
+
+                        <div class="know-more">
+                            Know more <i data-lucide="arrow-right" width="14"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUMNA 2 -->
+        <div class="col">
+            <!-- Header Bar -->
+            <div class="c2-top">
+                <div class="logo">
+                    <i data-lucide="activity" width="18"></i> relats
+                </div>
+                <div class="top-btns">
+                    <span>Full view</span>
+                    <div class="btn-overview">Overview</div>
+                </div>
+            </div>
+
+            <!-- Centro: Maquinaria Naranja -->
+            <div class="card c2-mid">
+                <div class="metal-detail"></div>
+            </div>
+
+            <!-- Abajo: Verde Sustentable -->
+            <div class="card c2-bot">
+                <div class="coming-soon">COMING SOON</div>
+                <h3>Sustainability Commitment</h3>
+                <p style="margin-top: 8px; opacity: 0.7; font-size: 0.75rem;">A new certification for a higher standard
+                    of sustainability</p>
+            </div>
+        </div>
+
+        <!-- COLUMNA 3 -->
+        <div class="col">
+            <div class="card c3-top">
+                <div class="tag">Mobility Industries</div>
+                <ul class="industry-list">
+                    <li>Construction machines</li>
+                    <li>Hybrid & electric</li>
+                    <li>Buses & trucks</li>
+                    <li>Railway</li>
+                    <li>Agriculture machines</li>
+                </ul>
+
+                <div class="card-footer-marquee">
+                    <div class="marquee-content">AND MORE &nbsp;&nbsp; MAGNETIC &nbsp;&nbsp; ROBOTICS &nbsp;&nbsp; OVENS
+                        &nbsp;&nbsp; VITROCERAMICS</div>
+                </div>
+            </div>
+
+            <div class="card c3-bot">
+                <div class="thumbs-row">
+                    <div style="flex:1; display:flex; flex-direction:column; gap:5px;">
+                        <div class="thumb"><img src="./imágenes/cueda-naranja.webp"></div>
+                        <div class="thumb-label">DURA HA</div>
+                    </div>
+                    <div style="flex:1; display:flex; flex-direction:column; gap:5px;">
+                        <div class="thumb"><img src="./imágenes/cuerda-negra.jpeg"></div>
+                        <div class="thumb-label">PLAS8 NA</div>
+                    </div>
+                    <div style="flex:1; display:flex; flex-direction:column; gap:5px;">
+                        <div class="thumb"><img src="./imágenes/cuerda-negro-naranja.webp"></div>
+                        <div class="thumb-label">Revitex VS</div>
+                    </div>
+                    <div style="flex:1; display:flex; flex-direction:column; gap:5px;">
+                        <div class="thumb"><img src="./imágenes/cuerda-gris.webp"></div>
+                        <div class="thumb-label">Revitex W</div>
+                    </div>
+                </div>
+
+                <div class="contact-pill">Contact</div>
+            </div>
+        </div>
+
+    </div>
 </body>
+
 </html>

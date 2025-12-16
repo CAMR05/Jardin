@@ -1,14 +1,387 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.lienzo {
-        position: absolute;
-    top: 0;
-    left: 0;
+body {
+    background-color: #050505;
+    /* Fondo casi negro */
+    color: #111;
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Fijo para la resolución pedida */
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.container {
+    width: 1440px;
+    height: 750px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* 3 Columnas iguales */
+    gap: 16px;
+}
+
+/* --- COLUMNAS --- */
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+}
+
+/* --- ESTILOS DE TARJETAS COMUNES --- */
+.card {
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- COLUMNA 1 (IZQUIERDA) --- */
+/* Tarjeta Superior: Tubo Naranja */
+.c1-top {
+    flex: 4;
+    /* Ocupa un 40% aprox */
+    background-image: url('./imágenes/cueda-naranja.webp');
+    /* Textura tejida naranja */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Overlay oscuro para leer texto */
+.c1-top::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.c1-top h2 {
+    position: relative;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 0 40px;
+    line-height: 1.2;
+}
+
+/* Tarjeta Inferior: Specs Beige */
+.c1-bot {
+    flex: 5;
+    /* Un poco más alta */
+    background-color: #e6e2dd;
+    /* Beige grisáceo */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Círculos de navegación */
+.nav-circles {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 8px;
+}
+
+.circle-btn {
+    width: 32px;
+    height: 32px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.product-title {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    color: #111;
+}
+
+.specs-group {
+    margin-top: auto;
+}
+
+.specs-label {
+    font-size: 0.65rem;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+}
+
+.specs-val {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.know-more {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85rem;
+    color: #333;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Imagen superpuesta del tubo negro (simulada con CSS shapes o img) */
+.black-tube {
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-20deg);
+    width: 200px;
+    height: 400px;
+    /* Usamos una imagen de tubo o textura negra */
+    background: url('https://images.unsplash.com/photo-1621252179027-94459d27d3ee?q=80&w=2670&auto=format&fit=crop');
+    background-size: cover;
+    border-radius: 100px;
+    /* Forma de tubo */
+    z-index: 0;
+    box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenido encima del tubo */
+.c1-bot-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* --- COLUMNA 2 (CENTRO) --- */
+/* Barra navegación */
+.c2-top {
+    height: 60px;
+    /* Altura fija pequeña */
+    background-color: #222;
+    border-radius: 30px;
+    /* Más redondo */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px 0 25px;
+    flex-shrink: 0;
+}
+
+.logo {
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.top-btns {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    color: #999;
+    font-size: 0.8rem;
+}
+
+.btn-overview {
+    background: #050505;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+/* Tarjeta Naranja Central Grande */
+.c2-mid {
+    flex: 1;
+    /* Ocupa el espacio restante */
+    background-color: #ff7700;
+    background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2670&auto=format&fit=crop');
+    /* Maquinaria naranja */
+    position: relative;
+}
+
+/* Detalle metálico interior */
+.metal-detail {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    top: 50%;
+    background: linear-gradient(135deg, #ccc, #fff, #ccc);
+    border-radius: 12px;
+    opacity: 0.1;
+    /* Sutil */
+}
+
+/* Tarjeta Verde Inferior */
+.c2-bot {
+    height: 160px;
+    /* Altura fija */
+    background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2832&auto=format&fit=crop');
+    /* Paisaje verde */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.c2-bot h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.c2-bot p {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    max-width: 200px;
+    line-height: 1.3;
+}
+
+.coming-soon {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+/* --- COLUMNA 3 (DERECHA) --- */
+/* Tarjeta Lista Beige Claro */
+.c3-top {
+    flex: 6;
+    background-color: #e0dcd9;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.tag {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    width: fit-content;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.industry-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.industry-list li {
+    font-size: 1.6rem;
+    letter-spacing: -0.02em;
+    color: #222;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.industry-list li:hover {
+    opacity: 0.6;
+}
+
+/* Marquee footer en la tarjeta */
+.card-footer-marquee {
+    margin-top: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-content {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 0.1em;
+}
+
+/* Tarjeta Blanca Productos */
+.c3-bot {
+    flex: 4;
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.thumbs-row {
+    display: flex;
+    gap: 10px;
+    height: 120px;
+}
+
+.thumb {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.thumb img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}
 
+.thumb-label {
+    font-size: 0.65rem;
+    margin-top: 5px;
+    color: #444;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-pill {
+    align-self: center;
+    border: 1px solid #ddd;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #333;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.contact-pill:hover {
+    background: #f5f5f5;
 }
