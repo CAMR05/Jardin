@@ -1,14 +1,213 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.lienzo {
-        position: absolute;
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+
+/* ================= HERO ================= */
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./img/amsterdam.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+
+/* ================= TÍTULO CANALS ================= */
+.title {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.08em;
+    font-family: 'League Spartan', sans-serif;
+    font-size: clamp(5rem, 14vw, 14rem);
+    font-weight: 800;
+    color: #e11b1b;
+    letter-spacing: 0.12em;
+    z-index: 3;
+}
+
+
+.letter {
+    position: relative;
+    line-height: 0.9;
+}
+
+
+/* Cortes geométricos simulados */
+.letter.a::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    width: 60%;
+    height: 50%;
+    background: transparent;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 12px solid rgba(0, 0, 0, 0.25);
+    transform: translateX(-50%) rotate(180deg);
+    opacity: 0.4;
+}
+
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 80px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0;
+    z-index: 3;
+    color: #fff;
+}
 
+
+.menu {
+    font-size: 26px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.side-lines span {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+
+.side-x {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: auto;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+
+.vertical {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    opacity: 0.7;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: white;
+    opacity: 0.7;
+}
+
+.vertical-amsterdam {
+    writing-mode: vertical-rl;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: white;
+    opacity: 0.7;
+}
+
+
+/* ================= TEXTO PRINCIPAL ================= */
+.text-block {
+    position: absolute;
+    bottom: 140px;
+    left: 120px;
+    max-width: 420px;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    line-height: 1.6;
+    z-index: 3;
+}
+
+
+.text-block span {
+    font-weight: 500;
+}
+
+
+/* ================= CRÉDITOS ================= */
+.credits {
+    position: absolute;
+    bottom: 50px;
+    left: 120px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: #fff;
+    opacity: 0.6;
+    z-index: 3;
+}
+
+
+/* ================= BOTÓN ROJO ================= */
+.scroll {
+    position: absolute;
+    right: 60px;
+    bottom: 60px;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: #e11b1b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+
+.scroll::before {
+    content: '~';
+    font-size: 36px;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    .text-block,
+    .credits {
+        left: 100px;
+        right: 20px;
+    }
+
+
+    .scroll {
+        width: 64px;
+        height: 64px;
+    }
 }
