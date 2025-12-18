@@ -4,210 +4,248 @@
     box-sizing: border-box;
 }
 
-html,
 body {
-    height: 100%;
+    background-color: #ffffff;
+    /* Fondo oscuro exterior */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    overflow: auto;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
+/* --- EL LIENZO (CANVAS) --- */
+/* Esto crea la "hoja" blanca fija de 1440x750 */
+.canvas {
+    width: 1440px;
+    height: 750px;
+    background-color: #FAFAF8;
+    /* Blanco crema */
+    position: relative;
+    /* Clave para que los hijos absolute funcionen */
     overflow: hidden;
 }
 
-
-/* ================= HERO ================= */
-.hero {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('./img/amsterdam.webp');
-    background-size: cover;
-    background-position: center;
+/* --- CORRECCIÓN 1: NAVEGACIÓN --- */
+/* Antes se quedaba en medio. Ahora forzamos posición superior y ancho total */
+nav {
+    position: absolute;
+    /* Lo saca del flujo para pegarlo arriba */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Ocupa todo el ancho */
+    display: flex;
+    justify-content: space-between;
+    /* Empuja MENU a la izq y WRITE a la der */
+    align-items: flex-start;
+    padding: 30px 40px;
+    /* Margen interior */
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    z-index: 100;
+    /* Asegura que esté encima de todo */
 }
 
-
-.hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.12);
+.menu-icon {
+    margin-right: 8px;
+    font-size: 14px;
 }
 
+.dot {
+    height: 8px;
+    width: 8px;
+    background: black;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+}
 
-/* ================= TÍTULO CANALS ================= */
-.title {
+/* --- CORRECCIÓN 2: TÍTULO PRINCIPAL --- */
+header {
     position: absolute;
+    top: 50px;
+    /* Separación desde el techo */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+h1 {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 26px;
+    /* Tamaño ajustado */
+    letter-spacing: -0.5px;
+    color: #111;
+}
+
+/* --- ÁREA DE GALERÍA --- */
+.gallery-area {
+    position: absolute;
+    top: 120px;
+    /* Empujamos las fotos hacia abajo para dejar sitio al título */
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    position: absolute;
+    background-color: #ffffff;
+    transition: transform 0.3s;
+}
+
+/* Posiciones ajustadas para 1440px */
+
+/* Foto 1 (Izq) */
+.c-1 {
+    width: 160px;
+    height: 210px;
     top: 40px;
+    left: 180px;
+    background: url('./img/random.jpeg') center/cover;
+}
+
+/* Foto 2 (Blur) */
+.c-2 {
+    width: 180px;
+    height: 180px;
+    top: 200px;
+    left: 380px;
+    background:url('./img/random-1.jpg') center/cover;
+    border-radius: 50%;
+    filter: blur(8px);
+}
+
+/* Foto 3 (CENTRAL - Morada) */
+/* Esta es la clave para centrar la imagen principal */
+.c-3 {
+    width: 240px;
+    height: 320px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    gap: 0.08em;
-    font-family: 'League Spartan', sans-serif;
-    font-size: clamp(5rem, 14vw, 14rem);
-    font-weight: 800;
-    color: #e11b1b;
-    letter-spacing: 0.12em;
-    z-index: 3;
+    /* Centrado matemático exacto */
+    background: url('./img/father&daughter.jpg') center/cover;
+    z-index: 20;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-
-.letter {
-    position: relative;
-    line-height: 0.9;
-}
-
-
-/* Cortes geométricos simulados */
-.letter.a::after {
-    content: '';
+.save-btn {
     position: absolute;
-    bottom: 10%;
-    left: 50%;
-    width: 60%;
-    height: 50%;
-    background: transparent;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 12px solid rgba(0, 0, 0, 0.25);
-    transform: translateX(-50%) rotate(180deg);
+    top: 15px;
+    left: 15px;
+    background: #E60023;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.c-text {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: cursive, sans-serif;
+    font-size: 20px;
+    transform: rotate(-6deg);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Foto 4 (Derecha) */
+.c-4 {
+    width: 160px;
+    height: 200px;
+    top: 50px;
+    right: 380px;
+    background: url('./img/random-2.jpg') center/cover;
     opacity: 0.4;
 }
 
+/* Foto 5 (Derecha extrema) */
+.c-5 {
+    width: 180px;
+    height: 180px;
+    top: 80px;
+    right: 120px;
+    background: url('./img/random-3.webp') center/cover;
+}
 
-/* ================= SIDEBAR ================= */
-.sidebar {
+/* --- CORRECCIÓN 3: FOOTER --- */
+.footer {
     position: absolute;
-    top: 0;
+    bottom: -50px;
+    /* Cortamos ligeramente las letras abajo */
     left: 0;
-    width: 80px;
-    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* Separa JAM a izq y AREA a der */
+    align-items: flex-end;
+    /* Alinea todo al suelo */
+    padding: 0 40px;
+}
+
+.big-text {
+    font-family: 'Anton', sans-serif;
+    font-size: 200px;
+    /* Tamaño masivo fijo */
+    line-height: 1.3;
+    color: #111;
+    text-transform: uppercase;
+}
+
+/* Texto Central (Copyright, Discover, etc) */
+.footer-center {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 24px 0;
-    z-index: 3;
-    color: #fff;
-}
-
-
-.menu {
-    font-size: 26px;
-    margin-bottom: 30px;
-    cursor: pointer;
-}
-
-.side-lines span {
-    width: 1px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.6);
-}
-
-
-.side-x {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: auto;
-    font-size: 14px;
-    opacity: 0.7;
-}
-
-
-.vertical {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    opacity: 0.7;
-    margin-bottom: 20px;
     text-align: center;
+    /* Lo levantamos para que no toque el suelo, alineado con el layout */
+    margin-bottom: 70px;
+    z-index: 30;
 }
 
-.vertical-text {
-    writing-mode: vertical-rl;
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    color: white;
-    opacity: 0.7;
-}
-
-.vertical-amsterdam {
-    writing-mode: vertical-rl;
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    color: white;
-    opacity: 0.7;
-}
-
-
-/* ================= TEXTO PRINCIPAL ================= */
-.text-block {
-    position: absolute;
-    bottom: 140px;
-    left: 120px;
-    max-width: 420px;
-    color: #fff;
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    line-height: 1.6;
-    z-index: 3;
-}
-
-
-.text-block span {
-    font-weight: 500;
-}
-
-
-/* ================= CRÉDITOS ================= */
-.credits {
-    position: absolute;
-    bottom: 50px;
-    left: 120px;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    color: #fff;
-    opacity: 0.6;
-    z-index: 3;
-}
-
-
-/* ================= BOTÓN ROJO ================= */
-.scroll {
-    position: absolute;
-    right: 60px;
-    bottom: 60px;
-    width: 84px;
-    height: 84px;
-    border-radius: 50%;
-    background: #e11b1b;
+.labels {
+    width: 400px;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    font-weight: 800;
+    font-size: 11px;
+    margin-bottom: 30px;
+    color: #111;
+}
+
+.info {
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 1.3;
+    color: #111;
+}
+
+/* Botón rojo CO */
+.btn-co {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 55px;
+    height: 55px;
+    background: #E1251B;
+    color: white;
+    border-radius: 50%;
+    display: flex;
     justify-content: center;
-    z-index: 3;
-}
-
-
-.scroll::before {
-    content: '~';
-    font-size: 36px;
-    color: #fff;
-    transform: rotate(90deg);
-}
-
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-
-    .text-block,
-    .credits {
-        left: 100px;
-        right: 20px;
-    }
-
-
-    .scroll {
-        width: 64px;
-        height: 64px;
-    }
+    align-items: center;
+    font-weight: 700;
+    z-index: 50;
 }
