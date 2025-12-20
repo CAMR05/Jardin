@@ -1,4 +1,3 @@
-// Esperamos a que todo el contenido cargue
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- SELECCIÓN DE ELEMENTOS ---
@@ -7,99 +6,135 @@ document.addEventListener('DOMContentLoaded', () => {
     const centralText = document.querySelector('.c-text');
     const jamText = document.querySelector('.footer .big-text:first-child');
     const footerInfo = document.querySelector('.info');
+    const menuLabel = document.querySelector('.left'); 
     const menuIcon = document.querySelector('.menu-icon');
 
-    // --- 1. CONFIGURACIÓN INICIAL (ESTADOS POR DEFECTO) ---
+    // --- CONFIGURACIÓN INICIAL (SET) ---
+    // Aseguramos estados iniciales para evitar parpadeos
+    if(centralText) gsap.set(centralText, { autoAlpha: 0, y: 10 });
     
-    // Ocultamos el texto de la tarjeta central inicialmente
-    if(centralText) {
-        centralText.style.opacity = '0';
-        centralText.style.transition = 'all 0.4s ease'; // Suavizamos la aparición
-    }
+    // CRÍTICO: Le recordamos a GSAP que la tarjeta 3 está centrada con CSS (-50%)
+    if(centralCard) gsap.set(centralCard, { xPercent: -50 });
 
-    // --- 2. LÓGICA PARA LAS TARJETAS (CARDS) ---
-    
+
+    // --- 1. ANIMACIÓN DE LAS TARJETAS (CARDS) ---
     cards.forEach(card => {
-        // Guardamos el z-index original por si acaso, aunque lo manejaremos dinámicamente
-        
-        card.addEventListener('mouseenter', () => {
-            // a) Cambios visuales generales
-            card.style.transition = "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)"; // Efecto rebote suave
-            card.style.cursor = "pointer";
-            card.style.zIndex = "50"; // Traer al frente
-            card.style.filter = "blur(0px) grayscale(0%)"; // Quitar blur y blanco/negro si hubiera
-            card.style.opacity = "1"; // Quitar transparencia
-            card.style.boxShadow = "0 20px 50px rgba(0,0,0,0.3)";
+        const isCentral = card.classList.contains('c-3');
 
-            // b) Manejo especial para la tarjeta central (C-3)
-            // La C-3 tiene un 'translateX(-50%)' en CSS para centrarse. 
-            // Si solo aplicamos scale, perderemos el centrado.
-            if (card.classList.contains('c-3')) {
-                card.style.transform = "translateX(-50%) scale(1.1)";
-            } else {
-                card.style.transform = "scale(1.1) rotate(-2deg)";
-            }
+        // -- Entrada (Hover) --
+        card.addEventListener('mouseenter', () => {
+            // zIndex inmediato para que suba de capa al instante
+            gsap.set(card, { zIndex: 50 });
+
+            gsap.to(card, {
+                duration: 0.5,
+                scale: 1.1,
+                rotation: isCentral ? 0 : -3, // La central recta, las otras giran
+                filter: "blur(0px) grayscale(0%)",
+                opacity: 1,
+                boxShadow: "0 25px 50px rgba(0,0,0,0.4)",
+                ease: "back.out(1.7)", // Efecto rebote suave
+                
+                // Mantenemos el anclaje central si es la C-3
+                xPercent: isCentral ? -50 : 0,
+                overwrite: 'auto' // Evita conflictos si pasas el mouse muy rápido
+            });
         });
 
+        // -- Salida (Leave) --
         card.addEventListener('mouseleave', () => {
-            // RESTAURAR ESTADO ORIGINAL
-            // Al dejar las propiedades vacías (""), el navegador vuelve a leer el archivo CSS
-            card.style.zIndex = ""; 
-            card.style.filter = ""; 
-            card.style.opacity = ""; 
-            card.style.boxShadow = ""; 
-            card.style.transform = ""; // Esto devolverá el translateX(-50%) a la C-3 gracias al CSS original
+            gsap.to(card, {
+                duration: 0.4,
+                scale: 1,
+                rotation: 0,
+                xPercent: isCentral ? -50 : 0, 
+                boxShadow: "none", 
+                ease: "power2.out",
+                overwrite: 'auto',
+                onComplete: () => {
+                    // Al terminar, limpiamos las propiedades para que el CSS original (main.css)
+                    // vuelva a aplicar sus filtros (blur, opacidad baja, etc.)
+                    gsap.set(card, { zIndex: "", filter: "", opacity: "" });
+                }
+            });
         });
     });
 
-    // --- 3. TEXTO QUE APARECE Y DESAPARECE (TARJETA CENTRAL) ---
-    
+    // --- 2. TEXTO TARJETA CENTRAL ---
     if (centralCard && centralText) {
         centralCard.addEventListener('mouseenter', () => {
-            centralText.style.opacity = '1';
-            centralText.style.transform = "translateY(-10px) rotate(-6deg)"; // Sube un poco
+            gsap.to(centralText, {
+                duration: 0.4,
+                autoAlpha: 1, 
+                y: -10, 
+                rotation: -6,
+                ease: "power2.out"
+            });
         });
 
         centralCard.addEventListener('mouseleave', () => {
-            centralText.style.opacity = '0';
-            centralText.style.transform = "translateY(0) rotate(-6deg)";
+            gsap.to(centralText, {
+                duration: 0.3,
+                autoAlpha: 0,
+                y: 10,
+                rotation: -6,
+                ease: "power2.in"
+            });
         });
     }
 
-    // --- 4. INTERACCIÓN EXTRA EN EL FOOTER ---
-    
+    // --- 3. FOOTER INTERACTIVO (JAM) ---
     if (jamText && footerInfo) {
-        // Guardamos el HTML original para restaurarlo luego
-        const originalInfoHTML = footerInfo.innerHTML;
+        const originalHTML = footerInfo.innerHTML;
 
         jamText.addEventListener('mouseenter', () => {
-            jamText.style.color = "#E1251B"; // Color rojo
-            jamText.style.cursor = "help";
+            gsap.to(jamText, { duration: 0.3, color: "#E1251B" });
             
-            // Cambiamos el texto de información dinámicamente
+            // Reemplazamos el HTML
             footerInfo.innerHTML = `
-                <p style="color: #E1251B">¡HOLA!</p>
-                <p>ESTO ES JS</p>
-                <p>INTERACTIVO</p>
-                <p>EN ACCIÓN</p>
+                <div class="temp-info">
+                    <p style="color: #E1251B">DESCUBRE</p>
+                    <p>LA MAGIA</p>
+                    <p>DE GSAP</p>
+                    <p>EN LA WEB</p>
+                </div>
             `;
+
+            // Animación escalonada (stagger) de los nuevos párrafos
+            gsap.fromTo(".temp-info p", 
+                { y: 20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.3, stagger: 0.1, ease: "power2.out" }
+            );
         });
 
         jamText.addEventListener('mouseleave', () => {
-            jamText.style.color = "#111"; // Volver a negro
-            footerInfo.innerHTML = originalInfoHTML; // Restaurar texto original
+            gsap.to(jamText, { duration: 0.3, color: "#111" });
+            
+            // Sacamos el texto actual hacia arriba antes de restaurar
+            gsap.to(".temp-info p", {
+                y: -10,
+                opacity: 0,
+                duration: 0.2,
+                stagger: 0.05,
+                onComplete: () => {
+                    footerInfo.innerHTML = originalHTML;
+                    // Entrada suave del texto original
+                    gsap.fromTo(footerInfo.children, {opacity: 0}, {opacity: 1, duration: 0.3});
+                }
+            });
         });
     }
 
-    // --- 5. PEQUEÑO DETALLE EN EL MENÚ ---
-    if(menuIcon) {
-        menuIcon.parentElement.addEventListener('mouseenter', () => {
-            menuIcon.style.color = "#E1251B";
-            menuIcon.innerText = "▶"; // Cambia el cuadrado por un triángulo
+    // --- 4. MENÚ ANIMADO ---
+    if(menuLabel && menuIcon) {
+        menuLabel.addEventListener('mouseenter', () => {
+            gsap.to(menuLabel, { color: "#E1251B", duration: 0.3 });
+            gsap.to(menuIcon, { rotation: 90, duration: 0.3, ease: "back.out" });
         });
-        menuIcon.parentElement.addEventListener('mouseleave', () => {
-            menuIcon.style.color = "inherit";
-            menuIcon.innerText = "■"; // Vuelve al cuadrado
+
+        menuLabel.addEventListener('mouseleave', () => {
+            gsap.to(menuLabel, { color: "inherit", duration: 0.3 });
+            gsap.to(menuIcon, { rotation: 0, duration: 0.3 });
         });
     }
 
