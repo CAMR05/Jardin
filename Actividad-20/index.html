@@ -1,13 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad Jardín 19. Interactive Layout Practice I</title>
+    <title>Actividad Jardín 20. Interactive Layout Practice II</title>
     <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 </head>
 <body>
-    <canvas id="lienzo"></canvas>
-    <script src="./app.js"></script>
+
+    <header>
+        <div class="nav-pill left">
+            <a href="#">ABOUT</a>
+            <a href="#">SHOP</a>
+            <a href="#">LEARN</a>
+        </div>
+
+        <div class="logo-container">
+            <div class="logo-box">
+                <span class="icon">🌿</span> ethical life
+            </div>
+        </div>
+
+        <div class="nav-pill right">
+            <a href="#" class="icon-btn">👤</a>
+            <a href="#" class="icon-btn">🛒</a>
+        </div>
+    </header>
+
+    <main class="hero-container">
+        
+        <h1 class="big-text">ethical life</h1>
+
+        <div class="glow-effect"></div>
+
+        <div class="bottle-wrapper parallax" data-speed="0.02">
+            <img src="./img/bottle.png" alt="Vitamin Bottle" class="bottle-img">
+            <div class="bottle-placeholder"></div> 
+        </div>
+
+        <div class="star star-1 parallax" data-speed="-0.08">
+            <img src="./img/580b585b2edbce24c47b2917.png" alt="star">
+        </div>
+
+        <div class="star star-2 parallax" data-speed="0.05">
+            <img src="./img/580b585b2edbce24c47b2917.png" alt="star">
+        </div>
+
+        <div class="star star-3 parallax" data-speed="-0.04">
+            <img src="./img/580b585b2edbce24c47b2917.png" alt="star">
+        </div>
+
+        <div class="star star-4 parallax" data-speed="0.06">
+            <img src="./img/580b585b2edbce24c47b2917.png" alt="star">
+        </div>
+
+        <div class="star star-5 parallax" data-speed="-0.06">
+            <img src="./img/580b585b2edbce24c47b2917.png" alt="star">
+        </div>
+        
+        <div class="star star-6 parallax" data-speed="0.1">
+            <img src="./img/580b585b2edbce24c47b2917.png" alt="star">
+        </div>
+
+        <p class="sub-text">Pharmacist and Nutritionist<br>Formulated.</p>
+
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
