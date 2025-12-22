@@ -1,13 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad Jardín 20. Interactive Layout Practice II</title>
+    <title>Actividad Jardín 21. Interactive Layout Practice III</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <canvas id="lienzo"></canvas>
-    <script src="./app.js"></script>
+
+    <div class="klook-frame">
+        
+        <header>
+            <div class="logo">
+                <span class="logo-icon">✤</span> klook
+            </div>
+            <div class="top-actions">
+                <span>English</span>
+                <div class="icon-circle">📢</div>
+            </div>
+        </header>
+
+        <div class="content-area">
+            <h1 class="main-title">First up, set your Out of Office<br>message.</h1>
+
+            <div class="giant-ticket">
+                <div class="ticket-left">
+                    <div class="deco-circle">✤</div>
+                    <div class="barcode"></div>
+                </div>
+                <div class="ticket-right"></div>
+            </div>
+
+            <div class="cards-container">
+                
+                <div class="card">
+                    <img src="./img/vacas-1.webp" alt="Beach">
+                    <div class="card-content">
+                        <p>Away...</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./img/vacas-2.jpg" alt="Relax">
+                    <div class="card-content">
+                        <h3>Off-grid mode ON.</h3>
+                        <p class="sub">Don't call me.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./img/vacas-3.webp" alt="Sunset">
+                    <div class="card-content">
+                        <p>However...</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bottom-ui">
+                <button id="prevBtn" class="nav-btn">←</button>
+                <button id="nextBtn" class="nav-btn main">Next ➝</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

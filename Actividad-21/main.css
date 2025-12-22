@@ -1,14 +1,125 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+     background: linear-gradient(135deg, #5e43e6 0%, #a85ee3 50%, #ff6b6b 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
 }
 
-.lienzo {
-        position: absolute;
-    top: 0;
-    left: 0;
+/* --- FRAME 1440x750 --- */
+.klook-frame {
+    width: 1440px;
+    height: 750px;
+    background: linear-gradient(135deg, #5e43e6 0%, #a85ee3 50%, #ff6b6b 100%);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+header { 
+    padding: 25px 60px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    z-index: 20; 
+}
+.logo { font-size: 1.8rem; font-weight: 700; }
+.top-actions { font-weight: 600; display: flex; gap: 20px; align-items: center; }
+.icon-circle { background: rgba(255,255,255,0.2); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px; 
+    position: relative;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: 10;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* --- Ticket de Fondo --- */
+.giant-ticket {
+    position: absolute;
+    top: 110px; 
+    width: 800px;
+    height: 400px; 
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 30px;
+    transform: rotate(-5deg); 
+    z-index: 1;
+    display: flex;
+}
+.ticket-left { flex: 2; border-right: 2px dashed rgba(255,255,255,0.3); position: relative; }
+.barcode { position: absolute; bottom: 30px; left: 30px; width: 120px; height: 60px; background: repeating-linear-gradient(90deg, white, white 2px, transparent 2px, transparent 5px); opacity: 0.5;}
+.deco-circle { position: absolute; top: 30px; left: 30px; font-size: 3rem; opacity: 0.5; }
+
+/* --- Cartas --- */
+.cards-container {
+    position: relative;
     width: 100%;
-    height: 100%;
-
+    height: 420px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    margin-top: 10px; 
 }
+
+.card {
+    position: absolute; 
+    width: 300px;
+    height: 400px;
+    background: white;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    transform-origin: center center;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.card-content { text-align: center; }
+.card-content h3 { font-size: 1.1rem; margin-bottom: 5px; }
+.card-content p { color: #666; font-size: 0.9rem; }
+
+/* --- Botones --- */
+.bottom-ui { 
+    margin-top: 10px; 
+    display: flex; 
+    gap: 15px; 
+    z-index: 20; 
+}
+
+.nav-btn {
+    border: none; padding: 15px 25px; border-radius: 50px;
+    font-size: 1rem; cursor: pointer;
+    background: rgba(255,255,255,0.2); color: white;
+}
+.nav-btn.main { background: white; color: #333; font-weight: 700; padding: 15px 40px; }
